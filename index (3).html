@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Linkking Communication - মোহনপুর ওয়াইফাই সার্ভিস</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<style>
+:root { --gold:#d4af37; }
+body { font-family:'Segoe UI', sans-serif; margin-top:70px; background:#f4f4f4; }
+/* Navbar */
+.navbar-brand img{ height:40px; margin-right:10px; }
+/* Hero */
+.hero { background: linear-gradient(rgba(10,20,45,0.85), rgba(10,20,45,0.85)), url('https://images.unsplash.com/photo-1581090700227-4c4d79c81f1c') center/cover no-repeat; min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; color:white; }
+.btn-gold { background: linear-gradient(90deg,#d4af37,#f0d68a); border:none; padding:12px 30px; border-radius:50px; font-weight:bold; transition:0.3s; }
+.btn-gold:hover { transform:scale(1.05); }
+/* Card */
+.card { border:none; border-radius:15px; box-shadow:0 8px 25px rgba(0,0,0,0.1); transition:0.3s; }
+.card:hover { transform:translateY(-8px) scale(1.02); }
+.device-img { height:200px; object-fit:cover; border-radius:10px; transition:0.3s; }
+.device-img:hover { transform:scale(1.05); }
+/* Social */
+.social-icons i { font-size:1.5rem; margin:0 5px; color:var(--gold); transition:0.3s; }
+.social-icons i:hover { transform:scale(1.2); }
+/* Admin Panel */
+#admin-panel { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); color:white; display:none; z-index:9999; overflow:auto; padding:20px; }
+#admin-panel h2{color:var(--gold);}
+.admin-close{position:absolute; top:10px; right:20px; font-size:1.5rem; cursor:pointer;}
+.admin-section{margin-bottom:30px;}
+.admin-section input, .admin-section textarea{width:100%; padding:10px; margin:5px 0 10px 0; border-radius:5px; border:none; }
+.admin-section button{padding:10px 20px; border:none; border-radius:5px; background:var(--gold); color:#000; font-weight:bold; cursor:pointer;}
+.admin-item { margin-bottom:10px; }
+.admin-item button.delete-btn { background:red; color:white; margin-left:5px; }
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
+<div class="container">
+<a class="navbar-brand fw-bold" id="nav-logo"><img src="https://via.placeholder.com/100x40.png?text=Logo" alt="Logo">Linkking</a>
+<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
+<span class="navbar-toggler-icon"></span></button>
+<div class="collapse navbar-collapse" id="nav">
+<ul class="navbar-nav ms-auto">
+<li class="nav-item"><a class="nav-link" href="#home">হোম</a></li>
+<li class="nav-item"><a class="nav-link" href="#packages">সাবস্ক্রিপশন</a></li>
+<li class="nav-item"><a class="nav-link" href="#devices">ডিভাইস</a></li>
+<li class="nav-item"><a class="nav-link" href="#contact">যোগাযোগ</a></li>
+</ul>
+</div>
+</div>
+</nav>
+
+<!-- Hero -->
+<section id="home" class="hero">
+<div class="container text-center">
+<h1 class="display-4 fw-bold" id="hero-title">মোহনপুর ওয়াইফাই সার্ভিস</h1>
+<p class="lead" id="hero-subtitle">সুপার ফাস্ট ফাইবার ইন্টারনেট • মতলব উত্তর, চাঁদপুর</p>
+<p id="hero-desc">১০০% ডেডিকেটেড লাইন • আনলিমিটেড ডেটা • ফ্রি ইনস্টলেশন</p>
+<a href="#packages" class="btn btn-gold me-3">প্যাকেজ দেখুন</a>
+<a href="tel:+8801580323986" class="btn btn-outline-light"><i class="fas fa-phone"></i> কল করুন</a>
+</div>
+</section>
+
+<!-- Packages -->
+<section id="packages" class="py-5 bg-light">
+<div class="container">
+<h2 class="text-center fw-bold mb-5">আমাদের প্যাকেজসমূহ</h2>
+<div class="row g-4" id="packages-container"></div>
+</div>
+</section>
+
+<!-- Devices -->
+<section id="devices" class="py-5">
+<div class="container">
+<h2 class="text-center fw-bold mb-5">ইন্টারনেট সামগ্রী</h2>
+<div class="row g-4" id="devices-container"></div>
+</div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="py-5 bg-dark text-white text-center">
+<div class="container">
+<h2>যোগাযোগ করুন</h2>
+<p id="contact-address">মোহনপুর বাজার, মতলব উত্তর, চাঁদপুর</p>
+<p><i class="fas fa-phone"></i> <span id="contact-phone">+880 1580-323986</span></p>
+<p><i class="fab fa-whatsapp"></i> <span id="contact-whatsapp">+880 1871-929036</span></p>
+<a href="#" id="whatsapp-btn" class="btn btn-success mt-3"><i class="fab fa-whatsapp"></i> WhatsApp এ মেসেজ করুন</a>
+<div class="social-icons mt-4" id="social-icons"></div>
+</div>
+</section>
+
+<footer class="bg-dark text-white text-center py-3" id="footer-text">© 2026 Linkking Communication</footer>
+
+<!-- Admin Panel -->
+<div id="admin-panel">
+<span class="admin-close" onclick="closeAdmin()">✖</span>
+<h2>Admin Panel</h2>
+
+<div class="admin-section">
+<h4>Navbar Logo</h4>
+<input type="file" onchange="uploadLogo(event)">
+<button onclick="deleteLogo()">Delete Logo</button>
+</div>
+
+<div class="admin-section">
+<h4>Hero Section</h4>
+<label>Title:</label><input type="text" id="admin-hero-title">
+<label>Subtitle:</label><input type="text" id="admin-hero-subtitle">
+<label>Description:</label><textarea id="admin-hero-desc"></textarea>
+<button onclick="updateHero()">Update Hero</button>
+</div>
+
+<div class="admin-section">
+<h4>Packages</h4>
+<div id="admin-packages"></div>
+<button onclick="addPackage()">Add New Package</button>
+</div>
+
+<div class="admin-section">
+<h4>Devices</h4>
+<div id="admin-devices"></div>
+<button onclick="addDevice()">Add New Device</button>
+</div>
+
+<div class="admin-section">
+<h4>Contact Info</h4>
+<label>Phone:</label><input type="text" id="admin-phone">
+<label>WhatsApp:</label><input type="text" id="admin-whatsapp">
+<label>Address:</label><textarea id="admin-address"></textarea>
+<button onclick="updateContact()">Update Contact</button>
+</div>
+
+<div class="admin-section">
+<h4>Social Links</h4>
+<div id="admin-social"></div>
+<button onclick="addSocial()">Add Social Link</button>
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+// Data
+let packagesData = [
+{name:"Starter", speed:"15 Mbps", price:"500", note:"আনলিমিটেড ডেটা"},
+{name:"Value", speed:"20 Mbps", price:"550", note:"৫০ মিনিট ফ্রি কল"},
+{name:"Popular", speed:"30 Mbps", price:"600", note:"১০০ মিনিট ফ্রি কল"},
+{name:"Advanced", speed:"40 Mbps", price:"700", note:"১৫০ মিনিট ফ্রি কল"},
+{name:"Premium", speed:"50 Mbps", price:"800", note:"২০০ মিনিট ফ্রি কল"}];
+
+let devicesData = [
+{name:"Router", price:"2500", img:"https://images.unsplash.com/photo-1606904825846-647eb07f5be2"},
+{name:"ONU Device", price:"1000", img:"https://images.unsplash.com/photo-1593642532973-d31b6557fa68"},
+{name:"Mini UPS", price:"2500", img:"https://images.unsplash.com/photo-1581092160562-40aa08e78837"}];
+
+let contactData = {phone:"+8801580323986", whatsapp:"+8801871929036", address:"মোহনপুর বাজার, মতলব উত্তর, চাঁদপুর"};
+let socialData = [
+{platform:"Facebook", url:"https://facebook.com"},
+{platform:"Instagram", url:"https://instagram.com"}];
+
+// Render functions
+function renderPackages(){
+let c=document.getElementById("packages-container"); c.innerHTML="";
+packagesData.forEach((pkg,i)=>{
+let d=document.createElement("div"); d.className="col-md-4";
+d.innerHTML=`<div class="card p-4 text-center">
+<h5>${pkg.name}</h5>
+<h2 class="text-warning">${pkg.speed}</h2>
+<p class="fw-bold">৳ ${pkg.price}/মাস</p>
+<p>${pkg.note}</p>
+<button onclick="whatsappOrder('${pkg.speed}','${pkg.price}')" class="btn btn-gold w-100">এখনই সাবস্ক্রিপশন নিন</button>
+</div>`; c.appendChild(d);
+});
+}
+
+function renderDevices(){
+let c=document.getElementById("devices-container"); c.innerHTML="";
+devicesData.forEach((dev,i)=>{
+let d=document.createElement("div"); d.className="col-md-4";
+d.innerHTML=`<div class="card p-3 text-center">
+<img src="${dev.img}" class="img-fluid device-img" id="device-img-${i}" loading="lazy">
+<h5 class="mt-3">${dev.name}</h5>
+<p class="text-warning fw-bold">৳ ${dev.price}</p>
+<button class="btn btn-gold w-100">ওয়াডার করুন</button>
+</div>`; c.appendChild(d);
+});
+}
+
+function renderSocial(){
+let c=document.getElementById("social-icons"); c.innerHTML="";
+socialData.forEach(s=>{
+let ic="fab fa-globe";
+if(s.platform.toLowerCase()=="facebook") ic="fab fa-facebook";
+else if(s.platform.toLowerCase()=="instagram") ic="fab fa-instagram";
+let a=document.createElement("a"); a.href=s.url; a.target="_blank";
+a.innerHTML=`<i class="${ic}"></i>`; c.appendChild(a);
+});
+}
+
+function whatsappOrder(speed, price){
+let msg=`আমি ${speed} (${price}৳) প্যাকেজ নিতে চাই`;
+let url="https://wa.me/"+contactData.whatsapp.replace(/[^0-9]/g,"")+"?text="+encodeURIComponent(msg);
+window.open(url,"_blank");
+}
+
+// Admin
+function openAdmin(){
+let p=prompt("Admin প্যানেল পাসওয়ার্ড দিন");
+if(p==="admin123"){document.getElementById("admin-panel").style.display="block"; populateAdmin(); }
+else{alert("পাসওয়ার্ড ভুল!");}
+}
+function closeAdmin(){document.getElementById("admin-panel").style.display="none";}
+
+function populateAdmin(){
+document.getElementById("admin-hero-title").value=document.getElementById("hero-title").innerText;
+document.getElementById("admin-hero-subtitle").value=document.getElementById("hero-subtitle").innerText;
+document.getElementById("admin-hero-desc").value=document.getElementById("hero-desc").innerText;
+
+// Packages
+let pC=document.getElementById("admin-packages"); pC.innerHTML="";
+packagesData.forEach((pkg,i)=>{
+let div=document.createElement("div"); div.className="admin-item";
+div.innerHTML=`<input type="text" value="${pkg.name}" placeholder="Name" data-index="${i}" class="pkg-name">
+<input type="text" value="${pkg.speed}" placeholder="Speed" data-index="${i}" class="pkg-speed">
+<input type="text" value="${pkg.price}" placeholder="Price" data-index="${i}" class="pkg-price">
+<input type="text" value="${pkg.note}" placeholder="Note" data-index="${i}" class="pkg-note">
+<button onclick="updatePackage(${i})">Update</button>
+<button class="delete-btn" onclick="deletePackage(${i})">Delete</button>`;
+pC.appendChild(div);
+});
+
+// Devices
+let dC=document.getElementById("admin-devices"); dC.innerHTML="";
+devicesData.forEach((dev,i)=>{
+let div=document.createElement("div"); div.className="admin-item";
+div.innerHTML=`<input type="text" value="${dev.name}" placeholder="Name" data-index="${i}" class="dev-name">
+<input type="text" value="${dev.price}" placeholder="Price" data-index="${i}" class="dev-price">
+<input type="file" onchange="uploadDeviceImage(event, ${i})" class="dev-upload">
+<button onclick="updateDevice(${i})">Update</button>
+<button class="delete-btn" onclick="deleteDevice(${i})">Delete</button>`;
+dC.appendChild(div);
+});
+
+// Social
+let sC=document.getElementById("admin-social"); sC.innerHTML="";
+socialData.forEach((s,i)=>{
+let div=document.createElement("div"); div.className="admin-item";
+div.innerHTML=`<input type="text" value="${s.platform}" placeholder="Platform" data-index="${i}" class="social-platform">
+<input type="text" value="${s.url}" placeholder="URL" data-index="${i}" class="social-url">
+<button onclick="updateSocial(${i})">Update</button>
+<button class="delete-btn" onclick="deleteSocial(${i})">Delete</button>`;
+sC.appendChild(div);
+});
+
+document.getElementById("admin-phone").value=contactData.phone;
+document.getElementById("admin-whatsapp").value=contactData.whatsapp;
+document.getElementById("admin-address").value=contactData.address;
+}
+
+// Updates
+function updateHero(){
+document.getElementById("hero-title").innerText=document.getElementById("admin-hero-title").value;
+document.getElementById("hero-subtitle").innerText=document.getElementById("admin-hero-subtitle").value;
+document.getElementById("hero-desc").innerText=document.getElementById("admin-hero-desc").value;
+}
+
+function updatePackage(i){
+packagesData[i].name=document.querySelector(`.pkg-name[data-index="${i}"]`).value;
+packagesData[i].speed=document.querySelector(`.pkg-speed[data-index="${i}"]`).value;
+packagesData[i].price=document.querySelector(`.pkg-price[data-index="${i}"]`).value;
+packagesData[i].note=document.querySelector(`.pkg-note[data-index="${i}"]`).value;
+renderPackages();
+populateAdmin();
+}
+
+function deletePackage(i){ packagesData.splice(i,1); renderPackages(); populateAdmin(); }
+function addPackage(){ packagesData.push({name:"New Package", speed:"0 Mbps", price:"0", note:""}); renderPackages(); populateAdmin(); }
+
+function uploadDeviceImage(event,i){ let reader=new FileReader(); reader.onload=function(){devicesData[i].img=reader.result; renderDevices();}; reader.readAsDataURL(event.target.files[0]); }
+function updateDevice(i){ devicesData[i].name=document.querySelector(`.dev-name[data-index="${i}"]`).value; devicesData[i].price=document.querySelector(`.dev-price[data-index="${i}"]`).value; renderDevices(); populateAdmin(); }
+function deleteDevice(i){ devicesData.splice(i,1); renderDevices(); populateAdmin(); }
+function addDevice(){ devicesData.push({name:"New Device", price:"0", img:""}); renderDevices(); populateAdmin(); }
+
+function updateContact(){ contactData.phone=document.getElementById("admin-phone").value; contactData.whatsapp=document.getElementById("admin-whatsapp").value; contactData.address=document.getElementById("admin-address").value;
+document.getElementById("contact-phone").innerText=contactData.phone;
+document.getElementById("contact-whatsapp").innerText=contactData.whatsapp;
+document.getElementById("contact-address").innerText=contactData.address;
+}
+
+function addSocial(){ socialData.push({platform:"New", url:"#"}); renderSocial(); populateAdmin(); }
+function updateSocial(i){ socialData[i].platform=document.querySelector(`.social-platform[data-index="${i}"]`).value; socialData[i].url=document.querySelector(`.social-url[data-index="${i}"]`).value; renderSocial(); populateAdmin(); }
+function deleteSocial(i){ socialData.splice(i,1); renderSocial(); populateAdmin(); }
+
+// Logo Upload/Delete
+function uploadLogo(event){
+let reader=new FileReader(); reader.onload=function(){ document.querySelector("#nav-logo img").src=reader.result; }; reader.readAsDataURL(event.target.files[0]);
+}
+function deleteLogo(){ document.querySelector("#nav-logo img").src="https://via.placeholder.com/100x40.png?text=Logo"; }
+
+// Initial Render
+document.addEventListener("DOMContentLoaded", function(){ renderPackages(); renderDevices(); renderSocial(); });
+</script>
+
+<!-- Admin Shortcut -->
+<button style="position:fixed; bottom:10px; right:10px; background:var(--gold); border:none; border-radius:50%; width:50px; height:50px; cursor:pointer; z-index:999;" onclick="openAdmin()" title="Admin Panel">⚙</button>
+
+</body>
+</
